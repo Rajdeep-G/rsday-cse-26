@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<title>About us - Research Scholar Day</title>
+<script src="pdfobject.js"></script>
+<meta property="og:image:height" content="298"/>
+<meta property="og:image" content="logo.png" />
+
+
+<link href='https://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+
+	
+<script>PDFObject.embed("Schedule.pdf", "#example1");</script>
+
+
+
+<style type="text/css">
+/* ===== Global Reset & Background ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f0ff 0%, #eaf4fb 40%, #fdf6ee 100%);
+    font-family: 'Mukta', sans-serif;
+}
+
+/* ===== Navigation ===== */
+.top-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+}
+
+.top-nav a {
+    margin: 0 25px;
+    font-family: 'Mukta', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #3a3a6e !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.top-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6c63ff, #e94560);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.top-nav a:hover::after {
+    width: 100%;
+}
+
+.top-nav a:hover {
+    color: #6c63ff !important;
+}
+
+.nav-logo {
+    height: 40px;
+    position: absolute;
+    right: 20px;
+    padding-bottom: 0;
+}
+
+/* ===== Links ===== */
+a:link {
+    text-decoration: none;
+    color: #3a3a6e;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #3a3a6e;
+}
+
+a:hover {
+    color: #6c63ff;
+}
+
+/* ===== Custom Tags ===== */
+st {
+    font-family: 'Mukta', sans-serif;
+    font-weight: 600;
+    font-size: 54px;
+    letter-spacing: -0.5px;
+}
+
+f22 {
+    font-family: 'Mukta', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+f20 {
+    font-family: 'Mukta', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+f22bold {
+    font-family: 'Mukta', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+/* ===== Main Content Area ===== */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 30px 60px;
+}
+
+/* ===== Page Title ===== */
+.page-title {
+    text-align: center;
+    margin-bottom: 10px;
+    animation: fadeInDown 0.6s ease-out;
+}
+
+.page-title p {
+    background: linear-gradient(135deg, #3a3a6e, #6c63ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===== Table ===== */
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
+    width: 100%;
+    margin-top: 20px;
+}
+
+th {
+    text-align: left;
+    padding: 10px;
+    font-family: 'Mukta', sans-serif;
+    font-size: 20px;
+}
+
+td {
+    padding: 10px;
+    text-align: left;
+    font-family: 'Mukta', sans-serif;
+    font-size: 20px;
+}
+
+/* ===== Image Card ===== */
+.about-img {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06),
+                0 1px 4px rgba(0, 0, 0, 0.04);
+    margin-bottom: 30px;
+    animation: fadeInUp 0.6s ease-out 0.15s both;
+}
+
+.about-img img {
+    width: 100%;
+    display: block;
+}
+
+/* ===== About Content Card ===== */
+.about-content {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    padding: 30px 36px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06),
+                0 1px 4px rgba(0, 0, 0, 0.04);
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+    line-height: 1.7;
+}
+
+.about-content p {
+    margin-bottom: 16px;
+}
+
+/* ===== Scroll-to-Top Button ===== */
+#myBtn {
+    position: fixed;
+    bottom: 24px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #3a3a6e, #6c63ff);
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.35);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#myBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(108, 99, 255, 0.5);
+}
+
+#myBtn a {
+    color: white !important;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* ===== Footer Accent ===== */
+.footer-accent {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px 0;
+    opacity: 0.4;
+    font-size: 28px;
+    letter-spacing: 8px;
+}
+
+/* ===== Layout helpers ===== */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.column {
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 100%;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: #9C0F48;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.container:hover .overlay {
+  bottom: 0;
+  height: 100%;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+span.smallcaps { font-variant: small-caps; }
+
+/* ===== Animations ===== */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .top-nav {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .top-nav a {
+        margin: 4px 12px;
+        font-size: 18px;
+    }
+    .content-wrapper {
+        padding: 20px 12px 40px;
+    }
+    st {
+        font-size: 36px;
+    }
+}
+
+
+
+</style>
+</head>
+
+
+
+
+
+
+
+
+<body>
+
+<div class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html" style="font-weight: bold;">About</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="logistics.html">Logistics</a>
+    <a href="brochure.pdf" target="_blank">Brochure</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhcHZ5aZcZSjA7B09Lh61l9Zr2Lv1IEMiNWZD_VKU_fbi1Cg/viewform" target="_blank">Register</a>
+    <img src="logo2.svg" class="nav-logo" alt="Logo">
+</div>
+
+<div class="content-wrapper">
+
+<div class="about-img">
+<img src="cse.jpg" alt="CSE Department">
+</div>
+
+<st><div class="page-title"><p style="color: #0000cd;">About Us</p></div></st>
+
+<f22>
+<div class="about-content">
+<!-- <p> The Department of Computer Science and Engineering at IIT Kharagpur was formed in 1980. It is regarded all over the world for excellence in research and teaching. </p>
+
+<p> The major areas of research in the department include Algorithms and Theory, Artificial Intelligence and Machine Learning, Bioinformatics, Language and Speech Processing, Cryptography and Security, Systems and Networking, Visual Information Processing, Cyberphysical and Embedded Systems, and Formal Verification.</p> -->
+
+
+<p>The Department of Computer Science and Engineering (CSE) at the Indian Institute of Technology Kharagpur is a leading center for education, research, and innovation in computing. The department offers undergraduate, postgraduate, and doctoral programs that combine strong theoretical foundations with practical problem-solving skills.
+</p>
+
+<p>Research in the department spans diverse areas such as artificial intelligence, systems, cybersecurity, data science, software engineering, and theoretical computer science. Supported by modern infrastructure and active collaborations with academia and industry, the department fosters an environment of innovation and interdisciplinary learning.
+</p>
+
+<p>Through excellence in teaching, research, and societal impact, the department continues to contribute to the advancement of computing and the development of future technology leaders.
+</p>
+
+<p> For more details on our department, please visit <a href="https://cse.iitkgp.ac.in/" target="_blank" style="color: #6c63ff">our webpage</a>
+</p>
+</div>
+</f22>
+
+<div class="footer-accent">✦ ✦ ✦</div>
+
+</div>
+
+<button id="myBtn"><a href="#top" style="color: white; text-decoration: none;">▲</a></button>
+
+</body>
+
+</html>

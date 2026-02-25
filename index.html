@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <title>Home - Research Scholar Day</title>
+  <script src="pdfobject.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style type="text/css">
+    /* ===== Global Reset & Background ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f5f0ff 0%, #eaf4fb 40%, #fdf6ee 100%);
+      font-family: 'Mukta', sans-serif;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('iitkgp.png') center center / cover no-repeat;
+      opacity: 0.25;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .top-nav,
+    .content-wrapper,
+    #myBtn {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== Navigation ===== */
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .top-nav a {
+      margin: 0 25px;
+      font-family: 'Mukta', sans-serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: #3a3a6e !important;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .top-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #6c63ff, #e94560);
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .top-nav a:hover::after {
+      width: 100%;
+    }
+
+    .top-nav a:hover {
+      color: #6c63ff !important;
+    }
+
+    .nav-logo {
+      height: 40px;
+      position: absolute;
+      right: 20px;
+      padding-bottom: 0;
+    }
+
+    /* ===== Links ===== */
+    a:link {
+      text-decoration: none;
+      color: #3a3a6e;
+      font-family: 'Mukta', sans-serif;
+      font-weight: 400;
+      font-size: 22px;
+    }
+
+    a:visited {
+      text-decoration: none;
+      color: #3a3a6e;
+    }
+
+    a:hover {
+      color: #6c63ff;
+    }
+
+    /* ===== Custom Tags ===== */
+    st {
+      font-family: 'Mukta', sans-serif;
+      font-weight: 600;
+      font-size: 54px;
+      letter-spacing: -0.5px;
+    }
+
+    f22 {
+      font-family: 'Mukta', sans-serif;
+      font-weight: 400;
+      font-size: 22px;
+    }
+
+    f20 {
+      font-family: 'Mukta', sans-serif;
+      font-weight: 300;
+      font-size: 20px;
+    }
+
+    f22bold {
+      font-family: 'Mukta', sans-serif;
+      font-weight: bold;
+      font-size: 22px;
+    }
+
+    /* ===== Main Content Area ===== */
+    .content-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 30px 60px;
+    }
+
+    /* ===== Hero Image ===== */
+    .hero-img {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06),
+        0 1px 4px rgba(0, 0, 0, 0.04);
+      margin-bottom: 30px;
+      animation: fadeInUp 0.6s ease-out 0.15s both;
+    }
+
+    .hero-img img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ===== Title Section ===== */
+    .hero-title-card {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 40px 30px 35px;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(14px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 8px 40px rgba(108, 99, 255, 0.10),
+        0 2px 8px rgba(0, 0, 0, 0.04);
+      animation: fadeInDown 0.7s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-title-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(108, 99, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(233, 69, 96, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-title-card .title-text {
+      font-family: 'Mukta', sans-serif;
+      font-weight: 700;
+      font-size: 58px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #2d2b6e 0%, #6c63ff 50%, #e94560 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 18px;
+      line-height: 1.15;
+      text-shadow: none;
+      position: relative;
+    }
+
+    .hero-title-card .title-divider {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #6c63ff, #e94560);
+      margin: 0 auto 20px;
+      border-radius: 3px;
+    }
+
+    .date-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #e94560, #ff6b6b);
+      color: #fff;
+      font-family: 'Mukta', sans-serif;
+      font-weight: 700;
+      font-size: 26px;
+      padding: 10px 32px;
+      border-radius: 50px;
+      letter-spacing: 1.5px;
+      box-shadow: 0 4px 20px rgba(233, 69, 96, 0.35),
+        0 0 0 4px rgba(233, 69, 96, 0.10);
+      animation: pulseBadge 2.5s ease-in-out infinite;
+      position: relative;
+    }
+
+    .date-badge .cal-icon {
+      margin-right: 8px;
+      font-size: 22px;
+    }
+
+    .hero-subtitle {
+      font-family: 'Mukta', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #3a3a6e;
+      margin-top: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
+    @keyframes pulseBadge {
+
+      0%,
+      100% {
+        transform: scale(1);
+        box-shadow: 0 4px 20px rgba(233, 69, 96, 0.35), 0 0 0 4px rgba(233, 69, 96, 0.10);
+      }
+
+      50% {
+        transform: scale(1.04);
+        box-shadow: 0 6px 28px rgba(233, 69, 96, 0.45), 0 0 0 8px rgba(233, 69, 96, 0.08);
+      }
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 10px;
+      animation: fadeInDown 0.6s ease-out;
+    }
+
+    .page-title p {
+      background: linear-gradient(135deg, #3a3a6e, #6c63ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== Header Table ===== */
+    table {
+      display: table;
+      border-collapse: separate;
+      border-spacing: 2px;
+      border-color: gray;
+      width: 100%;
+    }
+
+    th {
+      text-align: left;
+      padding: 10px;
+      font-family: 'Mukta', sans-serif;
+    }
+
+    /* ===== Home Content Card ===== */
+    .home-content {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 30px 36px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06),
+        0 1px 4px rgba(0, 0, 0, 0.04);
+      animation: fadeInUp 0.6s ease-out 0.3s both;
+      line-height: 1.7;
+    }
+
+    .home-content p {
+      margin-bottom: 16px;
+    }
+
+    /* ===== Scroll-to-Top Button ===== */
+    #myBtn {
+      position: fixed;
+      bottom: 24px;
+      right: 30px;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #3a3a6e, #6c63ff);
+      border-radius: 50%;
+      border: none;
+      box-shadow: 0 4px 15px rgba(108, 99, 255, 0.35);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #myBtn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(108, 99, 255, 0.5);
+    }
+
+    #myBtn a {
+      color: white !important;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    /* ===== Footer Accent ===== */
+    .footer-accent {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px 0;
+      opacity: 0.4;
+      font-size: 28px;
+      letter-spacing: 8px;
+    }
+
+    /* ===== Layout Helpers ===== */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+
+    .column {
+      flex: 50%;
+      padding: 0 4px;
+    }
+
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+    }
+
+    div.gallery {
+      margin: 5px;
+      border: 1px solid #ccc;
+      float: left;
+      width: 100%;
+    }
+
+    div.gallery:hover {
+      border: 1px solid #777;
+    }
+
+    div.gallery img {
+      width: 100%;
+      height: auto;
+    }
+
+    div.desc {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+    }
+
+    .image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      right: 0;
+      background-color: #9C0F48;
+      overflow: hidden;
+      width: 100%;
+      height: 0;
+      transition: .5s ease;
+    }
+
+    .container:hover .overlay {
+      bottom: 0;
+      height: 100%;
+    }
+
+    .text {
+      color: white;
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    span.smallcaps {
+      font-variant: small-caps;
+    }
+
+    /* ===== Animations ===== */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .top-nav {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .top-nav a {
+        margin: 4px 12px;
+        font-size: 18px;
+      }
+
+      .content-wrapper {
+        padding: 20px 12px 40px;
+      }
+
+      st {
+        font-size: 36px;
+      }
+
+      .hero-title-card {
+        padding: 28px 18px 25px;
+      }
+
+      .hero-title-card .title-text {
+        font-size: 36px;
+      }
+
+      .date-badge {
+        font-size: 20px;
+        padding: 8px 22px;
+      }
+
+      .hero-subtitle {
+        font-size: 16px;
+        letter-spacing: 2px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-nav">
+    <a href="index.html" style="font-weight: bold;">Home</a>
+    <a href="about.html">About</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="logistics.html">Logistics</a>
+    <a href="brochure.pdf" target="_blank">Brochure</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhcHZ5aZcZSjA7B09Lh61l9Zr2Lv1IEMiNWZD_VKU_fbi1Cg/viewform"
+      target="_blank">Register</a>
+    <img src="logo2.svg" class="nav-logo" alt="Logo">
+  </div>
+
+  <div class="content-wrapper">
+
+    <!-- <div class="hero-img">
+      <img src="cse.jpg" alt="Header Image">
+    </div> -->
+
+
+    <div class="hero-title-card">
+      <img src="logo2.svg" alt="Logo" style="height: 120px; display: block; margin: 0 auto 20px;">
+      <div class="title-text">Research Scholar Day</div>
+      <div class="title-divider"></div>
+      <div class="date-badge">
+        <span class="cal-icon">📅</span> 27 – 28 February, 2026
+      </div>
+      <div class="hero-subtitle">Department of Computer Science and Engineering<br>IIT Kharagpur</div>
+    </div>
+
+    <f22>
+      <div class="home-content">
+        <p style="color: #3a3a6e; text-align: justify;">
+          This workshop is designed for students who are interested in pursuing a PhD at the Department of Computer
+          Science and Engineering, IIT Kharagpur in the near future.
+          <a href="about.html" style="color: #e94560">Learn more about our department.</a>
+        </p>
+
+        <p style="color: #3a3a6e; text-align: justify;">
+          Join us for a two-day visit to the Department of Computer Science and Engineering at IIT Kharagpur, where you
+          will interact with our faculty members and explore ongoing research and academic opportunities.
+          Only 50 students will be selected for this exclusive experience.
+        </p>
+      </div>
+    </f22>
+
+    <div class="footer-accent">✦ ✦ ✦</div>
+
+  </div>
+
+  <button id="myBtn"><a href="#top" style="color: white; text-decoration: none;">▲</a></button>
+
+</body>
+
+</html>

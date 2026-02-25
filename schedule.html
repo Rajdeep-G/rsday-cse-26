@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<title>Schedule - Research Scholar Day</title>
+<script src="pdfobject.js"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style type="text/css">
+/* ===== Global Reset & Background ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f0ff 0%, #eaf4fb 40%, #fdf6ee 100%);
+    font-family: 'Mukta', sans-serif;
+}
+
+/* ===== Navigation ===== */
+.top-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+}
+
+.top-nav a {
+    margin: 0 25px;
+    font-family: 'Mukta', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #3a3a6e !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.top-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6c63ff, #e94560);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.top-nav a:hover::after {
+    width: 100%;
+}
+
+.top-nav a:hover {
+    color: #6c63ff !important;
+}
+
+.nav-logo {
+    height: 40px;
+    position: absolute;
+    right: 20px;
+    padding-bottom: 0;
+}
+
+/* ===== Links ===== */
+a:link {
+    text-decoration: none;
+    color: #3a3a6e;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #3a3a6e;
+}
+
+a:hover {
+    color: #6c63ff;
+}
+
+/* ===== Custom Tags ===== */
+st {
+    font-family: 'Mukta', sans-serif;
+    font-weight: 600;
+    font-size: 54px;
+    letter-spacing: -0.5px;
+}
+
+f22 {
+    font-family: 'Mukta', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+}
+
+f20 {
+    font-family: 'Mukta', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+/* ===== Main Content Area ===== */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 30px 60px;
+}
+
+/* ===== Page Title ===== */
+.page-title {
+    text-align: center;
+    margin-bottom: 10px;
+    animation: fadeInDown 0.6s ease-out;
+}
+
+.page-title div {
+    background: linear-gradient(135deg, #3a3a6e, #6c63ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    animation: fadeInDown 0.6s ease-out 0.15s both;
+}
+
+/* ===== Venue Ribbon ===== */
+.venue-ribbon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #e94560, #ff6b6b);
+    color: #fff;
+    font-family: 'Mukta', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 12px 36px;
+    border-radius: 50px;
+    margin-bottom: 28px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 20px rgba(233, 69, 96, 0.3);
+    animation: fadeInDown 0.6s ease-out 0.2s both;
+    position: relative;
+    overflow: hidden;
+}
+
+.venue-ribbon-wrapper {
+    text-align: center;
+}
+
+.venue-ribbon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(50%); }
+}
+
+.venue-ribbon .ribbon-icon {
+    font-size: 22px;
+}
+
+.venue-ribbon .ribbon-label {
+    font-weight: 400;
+    opacity: 0.85;
+    font-size: 20px;
+}
+
+/* ===== Day Toggle ===== */
+.day-toggle-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+    animation: fadeInDown 0.6s ease-out 0.25s both;
+}
+
+.day-toggle {
+    display: flex;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 5px;
+    box-shadow: 0 4px 24px rgba(108, 99, 255, 0.12),
+                0 1px 4px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(108, 99, 255, 0.1);
+    position: relative;
+}
+
+.day-toggle-btn {
+    position: relative;
+    z-index: 2;
+    border: none;
+    background: transparent;
+    font-family: 'Mukta', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #7a7aaa;
+    padding: 12px 32px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: color 0.35s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.day-toggle-btn.active {
+    color: #fff;
+}
+
+.day-toggle-btn:not(.active):hover {
+    color: #3a3a6e;
+}
+
+.day-toggle-btn .toggle-emoji {
+    font-size: 18px;
+}
+
+.day-toggle-btn .toggle-date {
+    font-weight: 400;
+    font-size: 17px;
+    opacity: 0.85;
+}
+
+.day-toggle-slider {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: calc(100% - 10px);
+    width: calc(50% - 5px);
+    background: linear-gradient(135deg, #3a3a6e, #6c63ff);
+    border-radius: 50px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(108, 99, 255, 0.35);
+    z-index: 1;
+}
+
+.day-toggle-slider.slide-right {
+    transform: translateX(100%);
+}
+
+/* ===== Table Styling ===== */
+.schedule-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    padding: 6px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06),
+                0 1px 4px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+
+.day-panel {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.day-panel.hidden {
+    display: none;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th {
+    padding: 16px 20px;
+    text-align: left;
+    font-family: 'Mukta', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #3a3a6e, #4e4b8a);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+th:first-child {
+    border-radius: 12px 0 0 0;
+}
+
+th:last-child {
+    border-radius: 0 12px 0 0;
+}
+
+td {
+    padding: 14px 20px;
+    text-align: left;
+    font-family: 'Mukta', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: background 0.2s ease;
+}
+
+/* Alternating row tints */
+tr:nth-child(even) td {
+    background: rgba(108, 99, 255, 0.03);
+}
+
+tr:nth-child(odd) td {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+tr:hover td {
+    background: rgba(108, 99, 255, 0.08);
+}
+
+/* Last row rounding */
+tr:last-child td:first-child {
+    border-radius: 0 0 0 12px;
+}
+
+tr:last-child td:last-child {
+    border-radius: 0 0 12px 0;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* ===== Venue Tag ===== */
+.venue-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #6c63ff, #4e4b8a);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-left: 6px;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+}
+
+/* ===== Scroll-to-Top Button ===== */
+#myBtn {
+    position: fixed;
+    bottom: 24px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #3a3a6e, #6c63ff);
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.35);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#myBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(108, 99, 255, 0.5);
+}
+
+#myBtn a {
+    color: white !important;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* ===== Footer Accent ===== */
+.footer-accent {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px 0;
+    opacity: 0.4;
+    font-size: 28px;
+    letter-spacing: 8px;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .top-nav {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .top-nav a {
+        margin: 4px 12px;
+        font-size: 18px;
+    }
+    .content-wrapper {
+        padding: 20px 12px 40px;
+    }
+    st {
+        font-size: 36px;
+    }
+    th, td {
+        padding: 10px 12px;
+        font-size: 17px;
+    }
+    .day-toggle {
+        border-radius: 16px;
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+    }
+    .day-toggle-btn {
+        padding: 10px 20px;
+        font-size: 18px;
+        justify-content: center;
+        border-radius: 12px;
+    }
+    .day-toggle-btn .toggle-date {
+        font-size: 15px;
+    }
+    .day-toggle-slider {
+        width: calc(100% - 10px);
+        height: calc(50% - 5px);
+        border-radius: 12px;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .day-toggle-slider.slide-right {
+        transform: translateX(0) translateY(100%);
+    }
+}
+
+@media (max-width: 420px) {
+    .day-toggle-btn {
+        padding: 9px 14px;
+        font-size: 16px;
+        gap: 6px;
+    }
+    .day-toggle-btn .toggle-date {
+        font-size: 14px;
+    }
+    .day-toggle-btn .toggle-emoji {
+        font-size: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="schedule.html" style="font-weight: bold;">Schedule</a>
+    <a href="logistics.html">Logistics</a>
+    <a href="brochure.pdf" target="_blank">Brochure</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhcHZ5aZcZSjA7B09Lh61l9Zr2Lv1IEMiNWZD_VKU_fbi1Cg/viewform" target="_blank">Register</a>
+    <img src="logo2.svg" class="nav-logo" alt="Logo">
+</div>
+
+<div class="content-wrapper">
+
+<st><div class="page-title" style="color: #0000cd;">Event Schedule</div></st>
+<!-- <f22><p class="page-subtitle">Brief summary of activities for Research Scholar Day 2026:</p></f22> -->
+
+<div class="venue-ribbon-wrapper">
+<div class="venue-ribbon">
+    <span class="ribbon-icon">🏛️</span>
+    <span class="ribbon-label">Venue:</span> Kalidas Auditorium
+</div>
+</div>
+
+<div class="day-toggle-wrapper">
+    <div class="day-toggle">
+        <div class="day-toggle-slider" id="toggleSlider"></div>
+        <button class="day-toggle-btn active" id="btnDay1" onclick="showDay(1)">
+            <span class="toggle-emoji">📅</span> Day 1 <span class="toggle-date">· Fri, 27 Feb</span>
+        </button>
+        <button class="day-toggle-btn" id="btnDay2" onclick="showDay(2)">
+            <span class="toggle-emoji">📅</span> Day 2 <span class="toggle-date">· Sat, 28 Feb</span>
+        </button>
+    </div>
+</div>
+
+<div class="schedule-card">
+
+<!-- Day 1 -->
+<div class="day-panel" id="day1">
+<table>
+<tr>
+    <th>Time</th>
+    <th>Event</th>
+</tr>
+<tr>
+    <td>First Half</td>
+    <td>Participants Arrive on IIT Kharagpur Campus</td>
+</tr>
+<tr>
+    <td>10 AM - 1 PM</td>
+    <td>Registration <span class="venue-tag">📍 Dept of CSE</span></td>
+</tr>
+<tr>
+    <td>1:30 PM - 1:35 PM</td>
+    <td>Dean FoE's Inauguration</td>
+</tr>
+<tr>
+    <td>1:35 PM - 1:50 PM</td>
+    <td>Introduction/Overview of Departments and Labs by HoD, CSE</td>
+</tr>
+<tr>
+    <td>1:50 PM - 3:20 PM</td>
+    <td>Faculty Talks Session-1</td>
+</tr>
+<tr>
+    <td>3:20 PM - 3:35 PM</td>
+    <td>Break</td>
+</tr>
+<tr>
+    <td>3:35 PM - 4:20 PM</td>
+    <td>PhD Alumni Talk (Dr. Rajdeep Mukherjee) and interaction</td>
+</tr>
+<tr>
+    <td>4:20 PM - 5:05 PM</td>
+    <td>Faculty Talks Session-2</td>
+</tr>
+<tr>
+    <td>5:05 PM - 5:20 PM</td>
+    <td>Break</td>
+</tr>
+<tr>
+    <td>5:20 PM - 6:15 PM</td>
+    <td>Panel Discussion: Phd in India -- What to look for ?</td>
+</tr>
+<tr>
+    <td>6:45 PM - 10:00 PM</td>
+    <td>Cultural program by Research scholars followed by Dinner <span class="venue-tag">📍 Vikramshila Foyer</span></td>
+</tr>
+</table>
+</div>
+
+<!-- Day 2 -->
+<div class="day-panel hidden" id="day2">
+<table>
+<tr>
+    <th>Time</th>
+    <th>Event</th>
+</tr>
+<tr>
+    <td>9:30 AM - 9:35 AM</td>
+    <td>Felicitate Prof. Parimal Pal Chaudhuri</td>
+</tr>
+<tr>
+    <td>9:35 AM - 9:55 AM</td>
+    <td>Talk by Prof. Parimal Pal Chaudhuri</td>
+</tr>
+<tr>
+    <td>9:55 AM - 10:15 AM</td>
+    <td>Talk by Dr. Anand Deshpande</td>
+</tr>
+<tr>
+    <td>10:15 AM - 11:45 AM</td>
+    <td>Student's talk</td>
+</tr>
+<tr>
+    <td>11:45 AM - 1:15 PM</td>
+    <td>Poster presentation by research scholars (& Tea)</td>
+</tr>
+<tr>
+    <td>1:30 PM - 2:30 PM</td>
+    <td>Lunch <span class="venue-tag">📍 Vikramshila Foyer</span></td>
+</tr>
+<tr>
+    <td>2:35 PM - 3:45 PM</td>
+    <td>Mentoring session for visiting students by faculty members / their students</td>
+</tr>
+<tr>
+    <td>3:45 PM - 4:00 PM</td>
+    <td>Vote of thanks + Certificate distribution</td>
+</tr>
+<tr>
+    <td>4:00 PM - 4:10 PM</td>
+    <td>High Tea</td>
+</tr>
+<tr>
+    <td>4:10 PM - 4:45 PM</td>
+    <td>Interactive session with Research Scholars</td>
+</tr>
+</table>
+</div>
+
+</div>
+
+<script>
+function showDay(day) {
+    const day1 = document.getElementById('day1');
+    const day2 = document.getElementById('day2');
+    const btn1 = document.getElementById('btnDay1');
+    const btn2 = document.getElementById('btnDay2');
+    const slider = document.getElementById('toggleSlider');
+
+    if (day === 1) {
+        day1.classList.remove('hidden');
+        day2.classList.add('hidden');
+        btn1.classList.add('active');
+        btn2.classList.remove('active');
+        slider.classList.remove('slide-right');
+    } else {
+        day2.classList.remove('hidden');
+        day1.classList.add('hidden');
+        btn2.classList.add('active');
+        btn1.classList.remove('active');
+        slider.classList.add('slide-right');
+    }
+}
+</script>
+
+<div class="footer-accent">✦ ✦ ✦</div>
+
+</div>
+
+<button id="myBtn"><a href="#top" style="color: white; text-decoration: none;">▲</a></button>
+
+</body>
+</html>
