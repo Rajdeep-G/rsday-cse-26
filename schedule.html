@@ -130,7 +130,7 @@ f20 {
 
 /* ===== Main Content Area ===== */
 .content-wrapper {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 40px 30px 60px;
 }
@@ -175,6 +175,24 @@ f20 {
     animation: fadeInDown 0.6s ease-out 0.2s both;
     position: relative;
     overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+a:hover .venue-ribbon {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 28px rgba(233, 69, 96, 0.45);
+}
+
+a .venue-ribbon::after {
+    content: ' ↗';
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+a:hover .venue-ribbon::after {
+    opacity: 1;
 }
 
 .venue-ribbon-wrapper {
@@ -367,6 +385,112 @@ tr:last-child td {
     border-bottom: none;
 }
 
+/* ===== Session Info ===== */
+.session-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.session-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #3a3a6e;
+}
+
+.session-chair-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #fdf6e3, #fff8e7);
+    color: #8b6914;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 6px 18px;
+    border-radius: 10px;
+    letter-spacing: 0.3px;
+    border: 1.5px solid #d4a843;
+    box-shadow: 0 2px 12px rgba(212, 168, 67, 0.2), inset 0 1px 0 rgba(255,255,255,0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+.session-chair-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 168, 67, 0.12), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+.speakers-label {
+    font-size: 20px;
+    font-weight: 600;
+    color: #e94560;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.speaker-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.speaker-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, rgba(108,99,255,0.07), rgba(233,69,96,0.05));
+    border: 1px solid rgba(108, 99, 255, 0.12);
+    border-radius: 12px;
+    padding: 10px 16px;
+    transition: all 0.3s ease;
+}
+
+.speaker-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(108, 99, 255, 0.15);
+    border-color: rgba(108, 99, 255, 0.25);
+}
+
+.speaker-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.speaker-avatar.av1 { background: linear-gradient(135deg, #6c63ff, #4e4b8a); }
+.speaker-avatar.av2 { background: linear-gradient(135deg, #e94560, #ff6b6b); }
+.speaker-avatar.av3 { background: linear-gradient(135deg, #2ecc71, #1abc9c); }
+.speaker-avatar.av4 { background: linear-gradient(135deg, #f39c12, #e67e22); }
+
+.speaker-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #3a3a6e;
+    line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+    .speaker-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ===== Venue Tag ===== */
 .venue-tag {
     display: inline-block;
@@ -379,6 +503,25 @@ tr:last-child td {
     margin-left: 6px;
     letter-spacing: 0.5px;
     vertical-align: middle;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+a .venue-tag:hover {
+    background: linear-gradient(135deg, #4e4b8a, #3a3a6e);
+    box-shadow: 0 4px 14px rgba(108, 99, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+a .venue-tag::after {
+    content: ' ↗';
+    font-size: 13px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+a .venue-tag:hover::after {
+    opacity: 1;
 }
 
 /* ===== Scroll-to-Top Button ===== */
@@ -524,10 +667,12 @@ tr:last-child td {
 <!-- <f22><p class="page-subtitle">Brief summary of activities for Research Scholar Day 2026:</p></f22> -->
 
 <div class="venue-ribbon-wrapper">
+<a href="https://maps.app.goo.gl/NhduxiqMuNpk3x648" target="_blank" style="text-decoration: none;">
 <div class="venue-ribbon">
     <span class="ribbon-icon">🏛️</span>
     <span class="ribbon-label">Venue:</span> Kalidas Auditorium
 </div>
+</a>
 </div>
 
 <div class="day-toggle-wrapper">
@@ -551,49 +696,140 @@ tr:last-child td {
     <th>Time</th>
     <th>Event</th>
 </tr>
+
 <tr>
-    <td>First Half</td>
-    <td>Participants Arrive on IIT Kharagpur Campus</td>
+    <td>10:00 AM - 1:00 PM</td>
+    <td>Registration (for invited participants) <a href="https://maps.app.goo.gl/kDv8dGREBkA2LSUY8" target="_blank"><span class="venue-tag">📍 Dept. of CSE</span></a></td>
 </tr>
 <tr>
-    <td>10 AM - 1 PM</td>
-    <td>Registration <span class="venue-tag">📍 Dept of CSE</span></td>
-</tr>
-<tr>
-    <td>1:30 PM - 1:35 PM</td>
+    <td>2:00 PM - 2:05 PM</td>
     <td>Dean FoE's Inauguration</td>
 </tr>
 <tr>
-    <td>1:35 PM - 1:50 PM</td>
+    <td>2:05 PM - 2:30 PM</td>
     <td>Introduction/Overview of Departments and Labs by HoD, CSE</td>
 </tr>
 <tr>
-    <td>1:50 PM - 3:20 PM</td>
-    <td>Faculty Talks Session-1</td>
+    <td>2:30 PM - 3:30 PM</td>
+    <td>
+        <div class="session-header">
+            <span class="session-title">Faculty Talks Session-1</span>
+            <span class="session-chair-badge">Session Chair — Prof. Sudeshna Sarkar</span>
+        </div>
+        <div class="speakers-label">Speakers</div>
+        <div class="speaker-grid">
+            <div class="speaker-card">
+                <div class="speaker-avatar av1">SA</div>
+                <div class="speaker-name">Prof. Somak Aditya</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-avatar av2">AM</div>
+                <div class="speaker-name">Prof. Animesh Mukherjee</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-avatar av3">SRB</div>
+                <div class="speaker-name">Prof. Sarani Bhattacharya</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-avatar av4">MM</div>
+                <div class="speaker-name">Prof. Mainack Mondal</div>
+            </div>
+        </div>
+    </td>
 </tr>
 <tr>
-    <td>3:20 PM - 3:35 PM</td>
+    <td>3:30 PM - 3:40 PM</td>
     <td>Break</td>
 </tr>
 <tr>
-    <td>3:35 PM - 4:20 PM</td>
-    <td>PhD Alumni Talk (Dr. Rajdeep Mukherjee) and interaction</td>
+    <td>3:40 PM - 4:20 PM</td>
+    <td>
+        <div class="session-header">
+            <span class="session-title">PhD Alumni Talk and interaction</span>
+            <span class="session-chair-badge">Session Chair — Prof. Rajat Subhra Chakraborty</span>
+        </div>
+        
+        <div class="speaker-grid">
+            <div class="speaker-card">
+                <!-- <div class="speaker-avatar av2">RM</div> -->
+                <div class="speaker-name">Dr. Rajdeep Mukherjee</div>
+            </div>
+        </div>
+    </td>
 </tr>
 <tr>
-    <td>4:20 PM - 5:05 PM</td>
-    <td>Faculty Talks Session-2</td>
+    <td>4:20 PM - 5:20 PM</td>
+    <td>
+        <div class="session-header">
+            <span class="session-title">Faculty Talks Session-2</span>
+            <span class="session-chair-badge">Session Chair — Prof. Soumya Kanti Ghosh</span>
+        </div>
+        <div class="speakers-label">Speakers</div>
+        <div class="speaker-grid">
+            <div class="speaker-card">
+                <div class="speaker-avatar av1">SD</div>
+                <div class="speaker-name">Prof. Soumyajit Dey</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-avatar av2">SAT</div>
+                <div class="speaker-name">Prof. CXXC XC</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-avatar av3">DR</div>
+                <div class="speaker-name">Prof. Debaditya Roy</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-avatar av4">SC</div>
+                <div class="speaker-name">Prof. Sandip Chakraborty</div>
+            </div>
+        </div>
+    </td>
 </tr>
 <tr>
-    <td>5:05 PM - 5:20 PM</td>
+    <td>5:20 PM - 5:30 PM</td>
     <td>Break</td>
 </tr>
 <tr>
-    <td>5:20 PM - 6:15 PM</td>
-    <td>Panel Discussion: Phd in India -- What to look for ?</td>
+    <td>5:30 PM - 6:15 PM</td>
+    <td>
+        <div class="session-header">
+            <span class="session-title">Panel Discussion: PhD in India — Expectations, Myth and Reality</span>
+            <span class="session-chair-badge">Session Chair — Prof. Aritra Hazra</span>
+        </div>
+        <div class="speakers-label">Panelists</div>
+        <div class="speaker-grid">
+            <div class="speaker-card">
+                <div class="speaker-avatar av1">ISG</div>
+                <div class="speaker-name">Prof. Indranil Sengupta </div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-avatar av2">PPC</div>
+                <div class="speaker-name">Prof. Partha Pratim Chakrabarti</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-avatar av3">PG</div>
+                <div class="speaker-name">Prof. Pawan Goyal</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-avatar av4">PD</div>
+                <div class="speaker-name">Prof. Palash Dey</div>
+            </div>
+            <div class="speaker-card">
+                <div class="speaker-avatar av1">CC</div>
+                <div class="speaker-name">Prof. Chandan Chakraborty</div>
+            </div>
+        </div>
+    </td>
+</tr>
+
+<tr>
+    <td>6:45 PM - 8:15 PM</td>
+    <td>Cultural program by Research scholars </span></td>
+
 </tr>
 <tr>
-    <td>6:45 PM - 10:00 PM</td>
-    <td>Cultural program by Research scholars followed by Dinner <span class="venue-tag">📍 Vikramshila Foyer</span></td>
+    <td>8:15 PM - 10:00 PM</td>
+    <td>Dinner <a href="https://maps.app.goo.gl/U15Lh8PzBXGpGafb7" target="_blank"><span class="venue-tag">📍 Vikramshila Foyer</span></a></td>
 </tr>
 </table>
 </div>
@@ -606,44 +842,79 @@ tr:last-child td {
     <th>Event</th>
 </tr>
 <tr>
-    <td>9:30 AM - 9:35 AM</td>
+    <td>9:00 AM - 9:50 AM</td>
+    <td>
+        <div class="session-header">
+            <span class="session-title">Talk by Research Scholars</span>
+            <span class="session-chair-badge">Session Chair — Prof. Sudeshna Koley</span>
+        </div>
+    </td>
+</tr>
+
+<tr>
+    <td>10:10 AM - 10:10 AM</td>
     <td>Felicitate Prof. Parimal Pal Chaudhuri</td>
 </tr>
 <tr>
-    <td>9:35 AM - 9:55 AM</td>
-    <td>Talk by Prof. Parimal Pal Chaudhuri</td>
+    <td>10:10 AM - 10:30 AM</td>
+    <td>
+        <div class="session-header">
+            <span class="session-title">Talk by Prof. Parimal Pal Chaudhuri</span>
+            <span class="session-chair-badge">Session Chair — Prof. Partha Pratim Chakrabarti</span>
+        </div>
+    </td>
+</tr>
+
+<tr>
+    <td>10:30 AM - 10:45 AM</td>
+    <td>Tea Break</td>
+</tr>
+
+<tr>
+    <td>10:45 AM - 11:15 AM</td>
+    <td>
+        <div class="session-header">
+            <span class="session-title">Talk by Dr. Anand Deshpande</span>
+            <span class="session-chair-badge">Session Chair — Prof. Indranil Sengupta</span>
+        </div>
+    </td>
 </tr>
 <tr>
-    <td>9:55 AM - 10:15 AM</td>
-    <td>Talk by Dr. Anand Deshpande</td>
+    <td>11:15 AM - 11:35 AM</td>
+    <td>
+        <div class="session-header">
+            <span class="session-title">Talk by Prof. Abhranil Chatterjee</span>
+            <span class="session-chair-badge">Session Chair — Prof. Indranil Sengupta</span>
+        </div>
+    </td>
 </tr>
+
 <tr>
-    <td>10:15 AM - 11:45 AM</td>
-    <td>Student's talk</td>
+    <td>11:35 AM - 12:00 PM</td>
+    <td>Director's Speech</td>
 </tr>
+
 <tr>
-    <td>11:45 AM - 1:15 PM</td>
+    <td>12:00 PM - 12:10 PM</td>
+    <td>Vote of thanks</td>
+</tr>
+
+<tr>
+    <td>12:10 PM - 1:30 PM</td>
     <td>Poster presentation by research scholars (& Tea)</td>
 </tr>
 <tr>
     <td>1:30 PM - 2:30 PM</td>
-    <td>Lunch <span class="venue-tag">📍 Vikramshila Foyer</span></td>
+    <td>Lunch & Round table discussion with faculty members <a href="https://maps.app.goo.gl/U15Lh8PzBXGpGafb7" target="_blank"><span class="venue-tag">📍 Vikramshila Foyer</span></a></td>
 </tr>
 <tr>
-    <td>2:35 PM - 3:45 PM</td>
-    <td>Mentoring session for visiting students by faculty members / their students</td>
+    <td>2:30 PM - 3:30 PM</td>
+    <td> Interaction and ask me anything session for visiting students and research scholars <a href="https://maps.app.goo.gl/DAGBSPg9wCD84WR17" target="_blank"><span class="venue-tag">📍 Maitri Auditorium</span></a></td>
 </tr>
+
 <tr>
-    <td>3:45 PM - 4:00 PM</td>
-    <td>Vote of thanks + Certificate distribution</td>
-</tr>
-<tr>
-    <td>4:00 PM - 4:10 PM</td>
-    <td>High Tea</td>
-</tr>
-<tr>
-    <td>4:10 PM - 4:45 PM</td>
-    <td>Interactive session with Research Scholars</td>
+    <td>3:30 PM </td>
+    <td>High tea and departure</td>
 </tr>
 </table>
 </div>
